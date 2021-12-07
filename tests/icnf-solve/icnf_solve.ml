@@ -43,7 +43,7 @@ end = struct
       Add_clause c
   and read_ints ?first self : _ array =
     Vec.clear self.vec; (* reuse local vec *)
-    CCOpt.iter (Vec.push self.vec) first;
+    CCOption.iter (Vec.push self.vec) first;
     let rec aux() =
       match L.token self.lex with
       | L.I 0 -> Vec.to_array self.vec (* done *)
